@@ -88,7 +88,7 @@ export const login = async (req: Request, res: Response) => {
       })
       return
     } else {
-      res.status(401).json({ message: "帳號或密碼錯誤" })
+      res.status(400).json({ message: "帳號或密碼錯誤" })
       return
     }
   } catch (error) {
