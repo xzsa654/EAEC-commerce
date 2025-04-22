@@ -1,9 +1,8 @@
-import { devtools } from "zustand/middleware";
-import { create } from "zustand";
 import axiosInstance from "@/lib/axios";
 import { addToast } from "@heroui/react";
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 import { IProduct } from "./useProductStore";
-import { it } from "node:test";
 
 interface Icoupon {
   _id: string;

@@ -1,6 +1,6 @@
 import { TPDInit } from "@/lib/TPDirect";
 import { Divider } from "@heroui/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 function PayComponent() {
   // 使得TPD只會執行一次

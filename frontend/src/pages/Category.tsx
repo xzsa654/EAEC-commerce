@@ -1,9 +1,8 @@
 import ProductCard from "@/components/productCard";
-import TestCard from "@/components/testCard";
 import { categorys } from "@/config/site";
 import { useProductStore } from "@/stores/useProductStore";
 import { CaptionsOff } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function CategoryPage() {

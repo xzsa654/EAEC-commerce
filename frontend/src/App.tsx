@@ -1,23 +1,16 @@
-import {
-  Navigate,
-  Route,
-  BrowserRouter,
-  Routes,
-  ScrollRestoration,
-  useLocation,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import IndexPage from "@/pages/index";
 import SignUpPage from "@/pages/SignUp";
 import { CircularProgress } from "@heroui/progress";
 import { useEffect } from "react";
+import CartPage from "./pages/Cart";
+import CategoryPage from "./pages/Category";
 import Dashboard from "./pages/dashboard";
 import LoginPage from "./pages/Login";
-import { useUserStore } from "./stores/useUserStore";
-import CategoryPage from "./pages/Category";
-import CartPage from "./pages/Cart";
-import { useCartStore } from "./stores/useCartStore";
 import PurchaseSuccessPage from "./pages/PurchaseSuccess";
+import { useCartStore } from "./stores/useCartStore";
+import { useUserStore } from "./stores/useUserStore";
 
 export function ScrollToTop() {
   const { pathname } = useLocation();

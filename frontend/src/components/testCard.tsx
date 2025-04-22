@@ -1,6 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { IProduct } from "@/stores/useProductStore";
+import { Link } from "react-router-dom";
 
 const TestCard = ({ product }: { product: IProduct }) => {
   const transitionName = product._id;

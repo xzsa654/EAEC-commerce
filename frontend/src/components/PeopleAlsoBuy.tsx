@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import ProductCard from "./productCard";
-import axios from "axios";
 import axiosInstance from "@/lib/axios";
-import { addToast, CircularProgress, Divider } from "@heroui/react";
 import { IProduct } from "@/stores/useProductStore";
+import { addToast, CircularProgress, Divider } from "@heroui/react";
+import { useEffect, useState } from "react";
+import ProductCard from "./productCard";
 
 export default function PeopleAlsoBuy() {
   const [recommendations, setReommendations] = useState([]);

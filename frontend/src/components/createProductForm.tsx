@@ -2,7 +2,6 @@ import { categorys } from "@/config/site";
 import { useProductStore } from "@/stores/useProductStore";
 import {
   Button,
-  CircularProgress,
   Form,
   Input,
   NumberInput,
@@ -10,7 +9,7 @@ import {
   SelectItem,
   Textarea,
 } from "@heroui/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ImageListType } from "react-images-uploading";
 import ProductFile from "./productFile";
 export default function CreateProductForm({
@@ -34,7 +33,7 @@ export default function CreateProductForm({
     for (let image of images) {
       fm.append("images[]", image.file as File);
     }
-    const result = await createProduct(fm);
+    await createProduct(fm);
     toggleTabs();
   };
 

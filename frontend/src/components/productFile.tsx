@@ -1,15 +1,15 @@
+import getCroppedImg from "@/lib/generateDowload";
 import { Button, Image, Link, Slider } from "@heroui/react";
 import {
+  CheckIcon,
+  CropIcon,
   LucideUpload,
   Trash2Icon,
-  CheckIcon,
   XIcon,
-  CropIcon,
 } from "lucide-react";
-import { useState, useCallback, useEffect } from "react";
-import ImageUploading, { ImageListType } from "react-images-uploading";
+import { useCallback, useEffect, useState } from "react";
 import Cropper, { Area } from "react-easy-crop";
-import getCroppedImg from "@/lib/generateDowload";
+import ImageUploading, { ImageListType } from "react-images-uploading";
 
 export default function ProductFile({
   images,
@@ -30,7 +30,7 @@ export default function ProductFile({
 
   const onChange = (
     imageList: ImageListType,
-    addUpdateIndex: number[] | undefined
+    _addUpdateIndex: number[] | undefined
   ) => {
     if (imageList.length > processedImages.length) {
       // 有新圖片上傳
@@ -46,7 +46,7 @@ export default function ProductFile({
   };
 
   const onCropComplete = useCallback(
-    (croppedArea: Area, croppedAreaPixels: Area) => {
+    (_croppedArea: Area, croppedAreaPixels: Area) => {
       setCroppedAreaPixels(croppedAreaPixels);
     },
     []
@@ -115,7 +115,6 @@ export default function ProductFile({
       maxNumber={6}
     >
       {({
-        imageList,
         onImageUpload,
         onImageRemoveAll,
         onImageUpdate,

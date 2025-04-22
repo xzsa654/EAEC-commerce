@@ -2,7 +2,7 @@ import { useCartStore } from "@/stores/useCartStore";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import { ArrowRight, CheckCircle, HandHeart } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 export default function PurchaseSuccessPage() {
   const { clearCart } = useCartStore();

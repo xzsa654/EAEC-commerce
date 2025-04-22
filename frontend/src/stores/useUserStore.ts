@@ -1,7 +1,7 @@
-import { create } from "zustand"
-import { devtools, persist } from "zustand/middleware"
-import axiosInstance from "@/lib/axios"
+import axiosInstance from "@/lib/axios";
 import { addToast } from "@heroui/react";
+import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 interface IUser {
   _id: string | any;
   name: string

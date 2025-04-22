@@ -1,7 +1,7 @@
 import { useCartStore } from "@/stores/useCartStore";
 import { IProduct } from "@/stores/useProductStore";
 import { useUserStore } from "@/stores/useUserStore";
-import { Button, Card, CardBody, CardFooter, Image } from "@heroui/react";
+import { Card, CardBody, CardFooter, Image } from "@heroui/react";
 import { ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

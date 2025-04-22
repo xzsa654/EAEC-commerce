@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Slideshow from "./text";
 
 const ShapesSlideshow = () => {

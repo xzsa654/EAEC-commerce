@@ -1,7 +1,7 @@
+import axiosInstance from "@/lib/axios";
+import { addToast } from "@heroui/react";
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import axiosInstance from "@/lib/axios";
-import { addToast, toast } from "@heroui/react";
 
 export interface IProduct {
   _id: string

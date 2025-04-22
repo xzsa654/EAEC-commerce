@@ -1,7 +1,7 @@
 import type { SpringOptions } from "framer-motion";
-import { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface TiltedCardProps {
   imageSrc: React.ComponentProps<"img">["src"];

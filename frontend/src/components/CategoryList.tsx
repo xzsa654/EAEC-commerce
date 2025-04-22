@@ -1,8 +1,8 @@
+import { categorys } from "@/config/site";
+import { useGSAP } from "@gsap/react";
 import { Image } from "@heroui/react";
 import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import React, { useRef, useState } from "react";
-import { categorys } from "@/config/site";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(useGSAP);

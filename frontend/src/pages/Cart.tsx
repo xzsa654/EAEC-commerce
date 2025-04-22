@@ -1,20 +1,11 @@
 import CartItem from "@/components/CartItem";
-import OrderSummery from "@/components/OrderSummery";
 import Coupon from "@/components/Coupon";
-import { useCartStore } from "@/stores/useCartStore";
-import {
-  Button,
-  Card,
-  divider,
-  Divider,
-  Image,
-  Link,
-  Skeleton,
-} from "@heroui/react";
-import { ShoppingCart } from "lucide-react";
-import React from "react";
-import PeopleAlsoBuy from "@/components/PeopleAlsoBuy";
+import OrderSummery from "@/components/OrderSummery";
 import PayComponent from "@/components/Payment";
+import PeopleAlsoBuy from "@/components/PeopleAlsoBuy";
+import { useCartStore } from "@/stores/useCartStore";
+import { Button, Divider, Link } from "@heroui/react";
+import { ShoppingCart } from "lucide-react";
 
 export default function CartPage() {
   const { carts } = useCartStore();

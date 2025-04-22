@@ -4,22 +4,18 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
 } from "@heroui/navbar";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import { siteConfig } from "@/config/site";
 import { ShoppingCart, User } from "lucide-react";
 
-import { GithubIcon, Logo } from "@/components/icons";
-import { useUserStore } from "@/stores/useUserStore";
-import UserDropDown from "./UserDropDown";
-import Category from "./Category";
-import { useState } from "react";
+import { GithubIcon } from "@/components/icons";
 import { useCartStore } from "@/stores/useCartStore";
+import { useUserStore } from "@/stores/useUserStore";
 import { Badge } from "@heroui/react";
+import { useState } from "react";
+import Category from "./Category";
+import UserDropDown from "./UserDropDown";
 export const Navbar = () => {
   const { user } = useUserStore();
   const [isOpen, setIsOpen] = useState(false);

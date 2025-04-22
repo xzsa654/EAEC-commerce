@@ -6,7 +6,7 @@ import {
   DropdownSection,
   DropdownTrigger,
 } from "@heroui/react";
-import { User, Store, LogOut } from "lucide-react";
+import { LogOut, Store, User } from "lucide-react";
 export default function UserDropDown() {
   const { logout } = useUserStore();
   return (

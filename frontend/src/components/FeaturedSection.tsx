@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { useProductStore } from "@/stores/useProductStore";
-import { CircularProgress, Image } from "@heroui/react";
+import { CircularProgress } from "@heroui/react";
+import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";

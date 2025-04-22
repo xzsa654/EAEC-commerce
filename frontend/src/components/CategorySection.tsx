@@ -1,8 +1,6 @@
 import { categorys } from "@/config/site";
-import { useProductStore } from "@/stores/useProductStore";
-import React, { useEffect } from "react";
-import CategoryCard from "./CategoryCard";
 import { ArrowRight } from "lucide-react";
+import CategoryCard from "./CategoryCard";
 
 export default function CategorySection() {
   return (

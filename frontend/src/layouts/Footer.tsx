@@ -1,6 +1,5 @@
 import { GithubIcon } from "@/components/icons";
 import { Link } from "@heroui/link";
-import React from "react";
 
 export default function Footer() {
   return (

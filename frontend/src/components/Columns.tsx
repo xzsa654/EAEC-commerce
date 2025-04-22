@@ -1,5 +1,4 @@
 import { Image } from "@heroui/react";
-import React from "react";
 
 export default function Columns() {
   return (
@@ -10,7 +9,7 @@ export default function Columns() {
           <div className="column-wrap relative block  will-change-transform">
             {Array(7)
               .fill(1)
-              .map((item, i) => {
+              .map((_item, i) => {
                 return (
                   <div
                     key={i}
@@ -33,7 +32,7 @@ export default function Columns() {
           <div className="column-wrap relative block  will-change-transform">
             {Array(7)
               .fill(1)
-              .map((item, i) => {
+              .map((_item, i) => {
                 return (
                   <div
                     key={i}
@@ -56,7 +55,7 @@ export default function Columns() {
           <div className="column-wrap relative block  will-change-transform">
             {Array(7)
               .fill(1)
-              .map((item, i) => {
+              .map((_item, i) => {
                 return (
                   <div
                     key={i}
