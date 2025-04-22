@@ -14,7 +14,9 @@ export default function FeaturedSection() {
   useEffect(() => {
     getFeaturedProducts();
   }, []);
-
+  console.log("products type:", typeof products);
+  console.log("Is array:", Array.isArray(products));
+  console.log("products:", products);
   if (loading) return <CircularProgress />;
   if (!products.length) return null;
   return (
