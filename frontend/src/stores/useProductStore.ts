@@ -79,7 +79,7 @@ export const useProductStore = create<IProductStore>()(
       try {
         const res = await axiosInstance.patch(`/product/${productId}`)
         set((prev) => ({
-          products: prev.products.map((product) => product._id === productId ? { ...product, isFeatured: res.data.isFeatured } : product),
+          products: prev.products?.map((product) => product._id === productId ? { ...product, isFeatured: res.data.isFeatured } : product),
           loading: false
         }))
       } catch (error: any) {

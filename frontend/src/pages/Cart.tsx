@@ -20,7 +20,7 @@ export default function CartPage() {
             {carts.length === 0 ? (
               <NoCartList />
             ) : (
-              carts.map((cart) => {
+              carts?.map((cart) => {
                 return <CartItem key={cart._id} item={cart} />;
               })
             )}

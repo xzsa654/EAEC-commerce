@@ -31,7 +31,7 @@ export default function PeopleAlsoBuy() {
       </h3>
       <Divider className="mt-3" />
       <div className="mt-6 grid grid-cols-2 max-[400px]:justify-items-center justify-items-center  max-[400px]:grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-2">
-        {recommendations.map((product: IProduct) => (
+        {recommendations?.map((product: IProduct) => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>

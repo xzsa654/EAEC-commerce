@@ -5,7 +5,7 @@ export const getCartProducts = async (req: Request, res: Response) => {
     // 取得特定的商品
     const products = await Product.find({ _id: { $in: req.user.cartItems } })
     // 過濾所需的內容 - 因為cartItems 本身沒有 product 的細節
-    const cartItems = products.map((product) => {
+    const cartItems = products?.map((product) => {
       // 挑選對應id的商品細節
       const item = req.user.cartItems.find((cartItem) => cartItem.id === product.id)
 

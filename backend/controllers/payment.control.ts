@@ -47,7 +47,7 @@ export const checkout = async (req: Request, res: Response) => {
     )
     const order = new Order({
       user: req.user._id,
-      products: products.map((product) => ({
+      products: products?.map((product) => ({
         product: product._id,
         quantity: product.quantity,
         price: product.price

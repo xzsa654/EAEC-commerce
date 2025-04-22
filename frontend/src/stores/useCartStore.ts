@@ -119,7 +119,7 @@ export const useCartStore = create<Icart>()(
           );
           const newCart = existingItem
             ? // 存在的話在原本數量上增1
-            prev.carts.map((item) =>
+            prev.carts?.map((item) =>
               item._id === product._id
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
@@ -166,7 +166,7 @@ export const useCartStore = create<Icart>()(
         }
         await axiosInstance.put(`/cart/${productId}`, { quantity });
         set((prev) => ({
-          carts: prev.carts.map((item) =>
+          carts: prev.carts?.map((item) =>
             item._id === productId ? { ...item, quantity } : item
           ),
         }));

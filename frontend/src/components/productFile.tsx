@@ -201,7 +201,7 @@ export default function ProductFile({
 
           {/* 圖片網格區域 */}
           <div className="grid grid-cols-3 gap-2 max-w-2xl mx-auto">
-            {processedImages.map((image, index) => (
+            {processedImages?.map((image, index) => (
               <div
                 key={index}
                 className={`${index === 0 ? "col-span-2 row-span-2" : ""} relative aspect-square overflow-hidden`}

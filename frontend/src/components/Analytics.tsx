@@ -100,7 +100,7 @@ export default function Analytics() {
       try {
         const res = await axiosInstance.get("/analytics");
         setAnalyticsData((prev) => {
-          const newData: CircleChartProps[] = prev.map((item, i) => {
+          const newData: CircleChartProps[] = prev??.map((item, i) => {
             const updatedItem = { ...item };
             switch (i) {
               case 0:
@@ -145,7 +145,7 @@ export default function Analytics() {
   return (
     <div className="min-h-screen space-y-10">
       <dl className="grid w-full  grid-cols-1 gap-10  sm:grid-cols-2 ">
-        {analyticsData.map((item, index) => (
+        {analyticsData??.map((item, index) => (
           <CircleChartCard key={index} {...item} />
         ))}
       </dl>
@@ -266,7 +266,7 @@ const CircleChartCard = React.forwardRef<
               cornerRadius={12}
               dataKey="value"
             >
-              {chartData.map((_, index) => (
+              {chartData?.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={`hsl(var(--heroui-${color === "default" ? "foreground" : color}))`}

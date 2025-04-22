@@ -299,7 +299,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
 
         {/* 幻灯片区域 */}
         <div ref={slideshowRef} className="slideshow">
-          {slides.map((slide, index) => (
+          {slides?.map((slide, index) => (
             <figure
               key={index}
               className={`slide ${index === current ? "slide--current" : ""}`}
@@ -324,7 +324,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
               </div>
               <figcaption className="slide__caption">
                 <h2 className="slides__caption-headline">
-                  {slide.textRows.map((row, i) => (
+                  {slide.textRows?.map((row, i) => (
                     <span key={i} className="text-row">
                       <span dangerouslySetInnerHTML={{ __html: row }}></span>
                     </span>

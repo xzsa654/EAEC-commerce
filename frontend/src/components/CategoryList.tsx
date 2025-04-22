@@ -23,7 +23,7 @@ export default function CategoryList({
   const items = ["衣著", "牛仔褲", "眼鏡", "飾品", "鞋類", "帽款"];
 
   // 为每个项目单独跟踪字体状态
-  const [fontStates, setFontStates] = useState(items.map(() => "font-default"));
+  const [fontStates, setFontStates] = useState(items??.map(() => "font-default"));
 
   const handleMouseEnter = (e: React.MouseEvent, index: number) => {
     // 获取当前悬停的项目元素
@@ -147,7 +147,7 @@ export default function CategoryList({
 
   return (
     <>
-      {categorys.map((item, i) => (
+      {categorys??.map((item, i) => (
         <div key={i} className="relative z-50">
           <div className="cover bg-background"></div>
           <Link

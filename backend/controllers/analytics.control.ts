@@ -56,7 +56,7 @@ export const dailySalesData = async (startDate: Date, endDate: Date) => {
 
     const dateArray: string[] = getDatesInRange(startDate, endDate)
 
-    return dateArray.map((date) => {
+    return dateArray?.map((date) => {
       const foundData = dailySales.find(d => d._id === date)
       return {
         foundData,

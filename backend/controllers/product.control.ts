@@ -32,7 +32,7 @@ export const createProduct = async (req: Request, res: Response) => {
   try {
     const { name, description, price, category } = req.body
     if (req.files.length) {
-      const images = (req.files as Express.Multer.File[]).map((file: Express.Multer.File) => file.path)
+      const images = (req.files as Express.Multer.File[])?.map((file: Express.Multer.File) => file.path)
       let imagesUrl: string[] = []
       for (const image of images) {
         const result = await cloudinary.uploader.upload(image)
@@ -60,7 +60,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
       res.status(404).json({ message: "商品不存在" })
       return
     }
-    await Promise.all(product.images.map(async (image: string) => {
+    await Promise.all(product.images?.map(async (image: string) => {
       try {
         const publicId = image.split("/").pop().split(".")[0]
         await cloudinary.uploader.destroy(publicId)

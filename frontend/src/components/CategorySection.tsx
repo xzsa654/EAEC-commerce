@@ -7,7 +7,7 @@ export default function CategorySection() {
     <section className="section_showcase w-full   bg-background p-5 space-y-10  ">
       <h2 className="w-full text-center text-2xl ">商品分類</h2>
       <div className="w-full container mx-auto h-full justify-items-center grid grid-cols-1 md:grid-cols-3 gap-12">
-        {categorys.map((category) => {
+        {categorys??.map((category) => {
           return (
             <CategoryCard
               key={category.key}

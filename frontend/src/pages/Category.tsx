@@ -25,7 +25,7 @@ export default function CategoryPage() {
         {categorys.find((item) => item.key === category)?.label}
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {products.map((v) => {
+        {products?.map((v) => {
           return <ProductCard key={v._id} product={v} />;
         })}
       </div>
