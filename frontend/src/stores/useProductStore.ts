@@ -28,7 +28,7 @@ interface IProductStore {
 }
 
 export const useProductStore = create<IProductStore>()(
-  devtools((set, get) => ({
+  devtools((set) => ({
     products: [],
     loading: false,
     setProducts: (products) => set({ products }),
