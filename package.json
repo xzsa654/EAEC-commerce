@@ -4,7 +4,7 @@
   "main": "backend/index.js",
   "scripts": {
     "dev": "tsx watch backend/index.ts",
-    "start": "node backend/server.js",
+    "start": "tsx backend/index.ts",
     "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],

@@ -29,6 +29,7 @@
     "@react-types/shared": "3.28.0",
     "@types/tpdirect": "^5.5.6",
     "axios": "^1.8.4",
+    "bb": "file:..",
     "clsx": "2.1.1",
     "framer-motion": "11.15.0",
     "lenis": "^1.2.3",
