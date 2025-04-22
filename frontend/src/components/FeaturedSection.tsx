@@ -27,11 +27,12 @@ export default function FeaturedSection() {
         className="py-2"
         // scrollbar={{ hide: true }}
       >
-        {products?.map((product) => (
-          <SwiperSlide key={product._id}>
-            <ProductCard product={product} isFeatured={true} />
-          </SwiperSlide>
-        ))}
+        {products.length > 0 &&
+          products?.map((product) => (
+            <SwiperSlide key={product._id}>
+              <ProductCard product={product} isFeatured={true} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
