@@ -9,7 +9,7 @@ export default function Columns() {
           <div className="column-wrap relative block  will-change-transform">
             {Array(7)
               .fill(1)
-              ??.map((_item, i) => {
+              ?.map((_item, i) => {
                 return (
                   <div
                     key={i}

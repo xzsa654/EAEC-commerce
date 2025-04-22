@@ -147,7 +147,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
           }}
           className="flex min-h-[200px] cursor-grab items-center justify-center [transform-style:preserve-3d]"
         >
-          {galleryImages??.map((url, i) => (
+          {galleryImages?.map((url, i) => (
             <div
               key={i}
               className="group absolute flex h-fit items-center justify-center p-[8%] [backface-visibility:hidden] md:p-[6%]"
