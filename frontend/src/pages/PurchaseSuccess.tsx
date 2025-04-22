@@ -5,9 +5,9 @@ import { ArrowRight, CheckCircle, HandHeart } from "lucide-react";
 import { useEffect } from "react";
 
 export default function PurchaseSuccessPage() {
-  const { clearCart } = useCartStore();
+  const { removeFromCart } = useCartStore();
   useEffect(() => {
-    clearCart();
+    removeFromCart(null);
   }, []);
   return (
     <div className="min-h-screen flex items-center justify-center px-4">

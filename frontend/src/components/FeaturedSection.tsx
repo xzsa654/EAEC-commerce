@@ -14,11 +14,8 @@ export default function FeaturedSection() {
   useEffect(() => {
     getFeaturedProducts();
   }, []);
-  console.log("products type:", typeof products);
-  console.log("Is array:", Array.isArray(products));
-  console.log("products:", products);
+
   if (loading) return <CircularProgress />;
-  if (!products.length) return null;
   return (
     <div className=" container mx-auto p-2 relative space-y-5 mt-5">
       <h2 className="w-full text-center text-2xl">精選商品</h2>
@@ -27,7 +24,6 @@ export default function FeaturedSection() {
         slidesPerView={window.innerWidth > 768 ? 3.2 : 2.4}
         pagination={{ clickable: true }}
         className="py-2"
-        // scrollbar={{ hide: true }}
       >
         {products.length > 0 &&
           products?.map((product) => (

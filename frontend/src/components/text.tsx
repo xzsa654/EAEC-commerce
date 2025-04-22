@@ -282,7 +282,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ slides }) => {
   };
 
   return (
-    <div className="section mb-[250vh] bg-background text-foreground font-sans antialiased">
+    <div className="section mb-[250vh] bg-background text-primary font-sans antialiased">
       <div className="slideshow-container ">
         {/* 简化的导航按钮 */}
         <div className="navigation-buttons">

@@ -8,10 +8,9 @@ import CategorySection from "@/components/CategorySection";
 import FeaturedSection from "@/components/FeaturedSection";
 import Carousel from "@/components/Carousel";
 
+gsap.registerPlugin(ScrollTrigger);
 export default function IndexPage() {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const lenis = new Lenis({
       lerp: 0.2,
     });

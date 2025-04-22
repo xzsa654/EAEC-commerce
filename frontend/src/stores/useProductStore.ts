@@ -37,10 +37,10 @@ export const useProductStore = create<IProductStore>()(
         set({ loading: true })
         const res = await axiosInstance.post("/product/createProduct", productData)
         set((prev) => ({
-          products: [...prev.products, res.data.product],
+          products: [...prev.products, res.data],
           loading: false
         }))
-        console.log(get().products);
+
 
         addToast({
           title: "上傳成功",

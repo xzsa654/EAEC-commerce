@@ -17,11 +17,12 @@ export const checkout = async (req: Request, res: Response) => {
       details = details + product.name
     }
     const coupon = await Coupon.findOne({ code: couponCode, userId: user._id, isActive: true })
-
+    const existedCoupon = await Coupon.findOne({ userId: user._id, isActive: true })
     if (coupon) {
       amount = amount - (coupon.discountPercentage / 100) * amount
+      Coupon.findOneAndDelete({ code: couponCode, userId: user._id, isActive: true })
     }
-    if (amount >= 3000) {
+    if (amount >= 3000 && !existedCoupon) {
       await createNewCouple(user._id)
     }
     const cardholder = {

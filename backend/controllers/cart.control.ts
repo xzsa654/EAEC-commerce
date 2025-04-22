@@ -37,6 +37,7 @@ export const addToCart = async (req: Request, res: Response) => {
 export const removeAllFromCart = async (req: Request, res: Response) => {
   try {
     const { productId } = req.body
+
     const user = req.user
 
     // 沒有給Id則全部清除
@@ -50,8 +51,11 @@ export const removeAllFromCart = async (req: Request, res: Response) => {
 
     res.json(user.cartItems)
   } catch (error) {
-    console.log("Error in removeAllFromCart controller", error.message);
-    res.status(500).json({ message: "Server Error", error: error.message })
+    if (error.name === 'VersionError') {
+      res.status(200).json({ message: '資料成功刪除' });
+    } else {
+      res.status(500).json({ message: "Server Error", error: error.message })
+    }
   }
 }
 

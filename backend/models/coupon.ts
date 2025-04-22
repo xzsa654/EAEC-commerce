@@ -1,14 +1,14 @@
 import mongoose, { Document } from "mongoose";
 
-interface Icoupon extends Document{
-  _id:string
-  code: string,
-  discountPercentage: number,
-  expirationDate: Date,
-  isActive: boolean,
-  userId: string
-  createdAt: Date,
-  updatedAt: Date
+interface Icoupon extends Document {
+	_id: string
+	code: string,
+	discountPercentage: number,
+	expirationDate: Date,
+	isActive: boolean,
+	userId: string
+	createdAt: Date,
+	updatedAt: Date
 }
 
 const couponSchema = new mongoose.Schema(

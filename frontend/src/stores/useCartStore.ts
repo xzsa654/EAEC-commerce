@@ -45,14 +45,13 @@ interface Icart {
   getCartItems: () => Promise<void>;
   getMyCoupon: () => Promise<void>
   addToCart: (product: IProduct) => Promise<void>;
-  removeFromCart: (productId: string) => Promise<void>;
+  removeFromCart: (productId: string | null) => Promise<void>;
   calculateTotal: () => void;
   updatedQuantity: (id: string, quantity: number) => Promise<void>;
   getPrime: () => Promise<string>
   sendPayment: (prime: string) => Promise<string>
   applyCoupon: (code: string) => Promise<void>
   removeCoupon: () => void
-  clearCart: () => void
 }
 
 export const useCartStore = create<Icart>()(
@@ -82,9 +81,7 @@ export const useCartStore = create<Icart>()(
         const res = await axiosInstance.get("/coupon")
         set({ coupon: res.data })
       } catch (error) {
-        addToast({
-          title: "取得優惠券失敗",
-        })
+
       }
     },
     applyCoupon: async (code) => {
@@ -147,9 +144,14 @@ export const useCartStore = create<Icart>()(
     removeFromCart: async (productId) => {
       try {
         await axiosInstance.delete(`/cart`, { data: { productId } });
-        set((prev) => ({
-          carts: prev.carts.filter((item) => item._id !== productId),
-        }));
+        if (!productId) {
+          set({ carts: [], isCheckout: false, total: 0, subTotal: 0, isCouponApplied: false });
+        } else {
+          set((prev) => ({
+            carts: prev.carts.filter((item) => item._id !== productId),
+          }));
+        }
+
         get().calculateTotal();
       } catch (error: any) {
         addToast({
@@ -241,13 +243,6 @@ export const useCartStore = create<Icart>()(
         })
       }
     },
-    clearCart: async () => {
-      try {
-        await axiosInstance.delete("/cart")
-        set({ carts: [], total: 0, subTotal: 0, coupon: null, isCheckout: false })
-      } catch (error) {
-        console.log(error);
-      }
-    }
+
   }))
 );
