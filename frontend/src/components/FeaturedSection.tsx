@@ -16,6 +16,7 @@ export default function FeaturedSection() {
   }, []);
 
   if (loading) return <CircularProgress />;
+  if (!products.length) return null;
   return (
     <div className=" container mx-auto p-2 relative space-y-5 mt-5">
       <h2 className="w-full text-center text-2xl">精選商品</h2>
