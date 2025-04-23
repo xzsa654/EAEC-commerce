@@ -11,7 +11,10 @@
 <br>
 ## 頁面展示
  - 首頁形象動畫
-  https://github.com/user-attachments/assets/35475ac9-ca40-4634-a3ab-233a61dffa1f
+
+
+
+https://github.com/user-attachments/assets/e996a30b-98d6-4f67-b3bb-22cd838f939f
 
 
 
