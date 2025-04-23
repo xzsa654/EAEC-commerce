@@ -1,6 +1,7 @@
 <h1 align="center">E-Commerce Store 🛒</h1>
 
-![Demo App](/frontend/public/screenshot-for-readme.png)
+![Frame 35](https://github.com/user-attachments/assets/6f9e0d44-fec4-4b13-af88-57b5aa3ce9ce)
+
 
 [專案網址(佈署於 Render 有可能進入睡眠期)](https://eaec-commerce.onrender.com/)
 
