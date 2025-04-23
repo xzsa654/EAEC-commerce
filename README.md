@@ -10,7 +10,10 @@
 .
 <br>
 ## 頁面展示
-https://github.com/user-attachments/assets/a99fb809-d96a-441e-a6d5-c6ef74a85dd6
+ - 首頁形象動畫
+  https://github.com/user-attachments/assets/35475ac9-ca40-4634-a3ab-233a61dffa1f
+
+
 
 
 ## 使用技術
