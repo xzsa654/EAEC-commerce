@@ -9,6 +9,9 @@
 這是一款使用 React 建立的電子商務網站。具有會員、Redis 身分驗證、商品分類、後臺管理、圖片裁減、TapPay 金流串接等功能。
 .
 <br>
+## 頁面展示
+https://github.com/user-attachments/assets/a99fb809-d96a-441e-a6d5-c6ef74a85dd6
+
 
 ## 使用技術
 
