@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/1227c502-9018-45f7-a2be-249cacdb793a
 ![f1](https://github.com/user-attachments/assets/8badba8a-c4b7-4f47-8d0d-ff0366da2cf0)
 
 
-## 使用技術
+## 使用技術/功能
 
 - 🗄️ MongoDB & Redis 一體化設計
 - 💳 TapPay 金流串接
