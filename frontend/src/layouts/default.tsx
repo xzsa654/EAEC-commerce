@@ -10,7 +10,7 @@ export default function DefaultLayout({
     <div className="relative flex flex-col ">
       <Navbar />
       <main>{children}</main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

@@ -12,10 +12,5 @@ export default defineConfig({
       }
     }
   },
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      treeshake: true,
-    }
-  }
+
 })

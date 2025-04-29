@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import App, { ScrollToTop } from "./App.tsx";
 import DefaultLayout from "./layouts/default.tsx";
 import { Provider } from "./provider.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>

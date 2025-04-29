@@ -10,37 +10,73 @@ import { useEffect, useState } from "react";
 export default function Footer() {
   const [time, setTime] = useState("");
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [platform, setPlatform] = useState("Unknown");
 
-  const platform = (navigator as any).userAgentData.platform;
-  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  // 使用更安全的方法檢測平台
   useEffect(() => {
-    document.addEventListener("mousemove", (e) => {
+    // 嘗試使用新API，如果支持的話
+    try {
+      if (
+        (navigator as any).userAgentData &&
+        (navigator as any).userAgentData.platform
+      ) {
+        setPlatform((navigator as any).userAgentData.platform);
+      } else {
+        // 回退到傳統userAgent解析
+        const userAgent = navigator.userAgent;
+        if (/Android/i.test(userAgent)) {
+          setPlatform("Android");
+        } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+          setPlatform("iOS");
+        } else if (/Win/i.test(userAgent)) {
+          setPlatform("Windows");
+        } else if (/Mac/i.test(userAgent)) {
+          setPlatform("MacOS");
+        } else if (/Linux/i.test(userAgent)) {
+          setPlatform("Linux");
+        } else {
+          setPlatform("Unknown");
+        }
+      }
+    } catch (error) {
+      console.error("Error detecting platform:", error);
+      setPlatform("Unknown");
+    }
+  }, []);
+
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
-    });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
     return () => {
-      document.removeEventListener("mousemove", (e) => {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
-      });
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setTime(new Date().toLocaleTimeString());
     }, 1000);
+
+    return () => clearInterval(timer); // 清理定時器以防內存洩漏
   }, []);
 
   return (
     <footer className="mt-10 font-Kudryashev pb-8 font-extrabold px-14 space-y-5 text-[10px] xl:text-[calc(7.7px+0.22vw)]">
       <div className="flex  w-full justify-between ">
         <div>
-          <p>{time.split("下午")[1]}</p>
+          <p>{time.split("下午")[1] || time}</p> {/* 添加fallback以防止null */}
           <div className="">
             CURSOR：&nbsp; X{cursorPosition.x}&nbsp; Y{cursorPosition.y}
           </div>
         </div>
         <div>
           <p>PLATFORM：{platform}</p>
-          <p>TIMEZONE：{timeZone.toUpperCase()}</p>
+          <p>TIMEZONE：{timeZone ? timeZone.toUpperCase() : "UNKNOWN"}</p>
         </div>
       </div>
       <div className="w-full flex justify-between">
