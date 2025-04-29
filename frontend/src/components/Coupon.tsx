@@ -25,7 +25,9 @@ export default function Coupon() {
   };
   return (
     <div className="flex flex-col gap-3 p-2 ">
-      <h2 className="font-default text-xl">優惠券代碼</h2>
+      <h2 className="font-default text-[10px] lg:text-[calc(7.7px+0.22vw)]">
+        優惠券代碼
+      </h2>
       <Divider />
       <form action="" className="flex gap-5">
         <Input
@@ -42,8 +44,7 @@ export default function Coupon() {
         ) : (
           <Button
             onPress={handleApplyCoupon}
-            className="font-default"
-            color="primary"
+            className="text-background bg-foreground text-[10px] lg:text-[calc(7.7px+0.22vw)]"
           >
             使用優惠碼
           </Button>

@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 
 import { MoonFilledIcon, SunFilledIcon } from "@/components/icons";
+import { useUserStore } from "@/stores/useUserStore";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -15,9 +16,13 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   className,
   classNames,
 }) => {
+  const { getTheme } = useUserStore();
   const [isMounted, setIsMounted] = useState(false);
 
   const { theme, setTheme } = useTheme();
+  useEffect(() => {
+    if (theme == "light" || theme == "dark") getTheme(theme);
+  }, [theme]);
 
   const {
     Component,
@@ -72,9 +77,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         })}
       >
         {isSelected ? (
-          <MoonFilledIcon size={22} />
+          <MoonFilledIcon size={18} />
         ) : (
-          <SunFilledIcon size={22} />
+          <SunFilledIcon size={18} />
         )}
       </div>
     </Component>

@@ -131,7 +131,7 @@ export default function ProductFile({
                   image={processedImages[currentImageIndex]?.dataURL}
                   crop={crop}
                   zoom={zoom}
-                  aspect={1} // 方形裁剪，可以根據需求更改
+                  aspect={89 / 115} // 方形裁剪，可以根據需求更改
                   onCropChange={setCrop}
                   onCropComplete={onCropComplete}
                   onZoomChange={setZoom}
@@ -204,7 +204,7 @@ export default function ProductFile({
             {processedImages?.map((image, index) => (
               <div
                 key={index}
-                className={`${index === 0 ? "col-span-2 row-span-2" : ""} relative aspect-square overflow-hidden`}
+                className={`${index === 0 ? "col-span-2 row-span-2" : ""} relative  overflow-hidden`}
               >
                 <Image
                   src={image.dataURL}

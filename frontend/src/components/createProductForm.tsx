@@ -38,55 +38,58 @@ export default function CreateProductForm({
   };
 
   return (
-    <div className="flex flex-col md:flex-row   justify-center gap-10 bg-default rounded-md p-3 ">
-      <ProductFile
-        isImageExist={isImageExist}
-        images={images}
-        createImage={(v: ImageListType) => setImages(v)}
-      />
-      <Form className="flex gap-3" onSubmit={handleSubmit}>
-        <Input
-          required
-          isRequired
-          name="name"
-          label={"商品名"}
-          className="md:w-[350px]"
+    <div className="min-h-screen">
+      {" "}
+      <div className="flex flex-col md:flex-row   justify-center gap-10 bg-default rounded-md p-3 ">
+        <ProductFile
+          isImageExist={isImageExist}
+          images={images}
+          createImage={(v: ImageListType) => setImages(v)}
         />
-        <Textarea
-          label={"描述"}
-          name="description"
-          placeholder="請輸入商品描述"
-          required
-          isRequired
-        />
-        <NumberInput
-          label="價格"
-          value={price}
-          onValueChange={setPrice}
-          isRequired
-          required
-          name="price"
-        />
-        <Select
-          isRequired
-          required
-          items={categorys}
-          label="商品類型"
-          name="category"
-          placeholder="請選擇一項商品類型"
-        >
-          {(category) => <SelectItem>{category.label}</SelectItem>}
-        </Select>
-        <Button
-          className="w-full"
-          color="primary"
-          isLoading={loading}
-          disabled={loading}
-          type="submit"
-        >
-          新增商品
-        </Button>
-      </Form>
+        <Form className="flex gap-3" onSubmit={handleSubmit}>
+          <Input
+            required
+            isRequired
+            name="name"
+            label={"商品名"}
+            className="md:w-[350px]"
+          />
+          <Textarea
+            label={"描述"}
+            name="description"
+            placeholder="請輸入商品描述"
+            required
+            isRequired
+          />
+          <NumberInput
+            label="價格"
+            value={price}
+            onValueChange={setPrice}
+            isRequired
+            required
+            name="price"
+          />
+          <Select
+            isRequired
+            required
+            items={categorys}
+            label="商品類型"
+            name="category"
+            placeholder="請選擇一項商品類型"
+          >
+            {(category) => <SelectItem>{category.label}</SelectItem>}
+          </Select>
+          <Button
+            className="w-full"
+            color="primary"
+            isLoading={loading}
+            disabled={loading}
+            type="submit"
+          >
+            新增商品
+          </Button>
+        </Form>
+      </div>{" "}
     </div>
   );
 }

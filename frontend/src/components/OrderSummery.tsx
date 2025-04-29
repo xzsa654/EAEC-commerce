@@ -35,8 +35,7 @@ export default function OrderSummery() {
       <Form onSubmit={handleSubmit} className="w-full">
         <Button
           isLoading={loading}
-          color="primary"
-          className="w-full"
+          className="w-full bg-foreground text-background text-[10px] lg:text-[calc(7.7px+0.22vw)]"
           type="submit"
         >
           送出訂單

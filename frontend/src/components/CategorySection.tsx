@@ -1,38 +1,63 @@
 import { categorys } from "@/config/site";
-import { ArrowRight } from "lucide-react";
-import CategoryCard from "./CategoryCard";
+import { Image } from "@heroui/react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function CategorySection() {
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+export default function CategorySection({
+  title = "商品分類",
+}: {
+  title?: string;
+}) {
   return (
-    <section className="section_showcase w-full   bg-background p-5 space-y-10  ">
-      <h2 className="w-full text-center text-2xl ">商品分類</h2>
-      <div className="w-full container mx-auto h-full justify-items-center grid grid-cols-1 md:grid-cols-3 gap-12">
-        {categorys?.map((category) => {
-          return (
-            <CategoryCard
-              key={category.key}
-              imageSrc={category.image}
-              altText="Kendrick Lamar - GNX Album Cover"
-              captionText={`explore ${category.key} `}
-              containerHeight="300px"
-              containerWidth="300px"
-              imageHeight="300px"
-              imageWidth="300px"
-              rotateAmplitude={12}
-              router={category.key}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={true}
-              displayOverlayContent={true}
-              overlayContent={
-                <p className="text-lg flex items-center ">
+    <section className="section mb-[250vh] flex flex-col p-5 justify-center items-center  w-full bg-background">
+      <h2 className="w-full text-center xl:text-[calc(7.7px+0.22vw)] text-[10px]">
+        {title}
+      </h2>
+      <div className="w-full mt-6 ">
+        <Swiper
+          className="w-4/5"
+          spaceBetween={10}
+          slidesPerView="auto"
+          breakpoints={{
+            480: {
+              slidesPerView: 2.5,
+              spaceBetween: 12,
+            },
+            768: {
+              slidesPerView: 4.5,
+              spaceBetween: 15,
+            },
+            1000: {
+              slidesPerView: "auto",
+            },
+          }}
+        >
+          {categorys?.map((category) => (
+            <SwiperSlide key={category.key} className="!w-auto">
+              <Link
+                to={`/category/${category.key}`}
+                className="rounded-md bg-foreground flex p-4 min-w-[112px] w-auto gap-2 items-center"
+              >
+                <Image
+                  loading="lazy"
+                  radius="none"
+                  width={"30px"}
+                  height={"40px"}
+                  src={category.image}
+                />
+                <p className="text-background sm:text-[calc(12px+0.22vw)] text-[10px] whitespace-nowrap">
                   {category.label}
-                  <ArrowRight size={18} />
                 </p>
-              }
-            />
-          );
-        })}
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

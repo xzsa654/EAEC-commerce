@@ -1,100 +1,42 @@
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import CategoryList from "./CategoryList";
 // 确保注册插件
 gsap.registerPlugin(useGSAP);
 
-type Props = {
-  isOpen: boolean;
-  isAnimated: boolean;
-  closeAnimated: () => void;
-  closeOpen: () => void;
-};
-
-export default function Category({
-  isOpen,
-  isAnimated,
-  closeAnimated,
-  closeOpen,
-}: Props) {
-  // 创建一个ref来引用category元素
-  const categoryRef = useRef<HTMLDivElement>(null);
-  // 创建一个ref来存储animation状态
-  const animationRef = useRef<{
-    tl: gsap.core.Timeline | null;
-    isPlaying: boolean;
-  }>({
-    tl: null,
-    isPlaying: false,
-  });
-
-  // 初始化和管理动画
-  useEffect(() => {
-    // 确保DOM元素存在
-    if (!categoryRef.current) return;
-
-    // 如果还没有创建timeline，则创建一个
-    if (!animationRef.current.tl) {
-      const tl = gsap.timeline({
-        paused: true,
-        onComplete: () => {
-          animationRef.current.isPlaying = false;
-          if (isOpen) closeAnimated();
-        },
-        onReverseComplete: () => {
-          animationRef.current.isPlaying = false;
-          if (!isOpen) {
-            closeAnimated();
-            closeOpen();
-          }
-        },
-      });
-
-      // 设置初始状态
-      gsap.set(categoryRef.current, {
-        startAt: { y: "-100%" },
-      });
-
-      // 添加动画序列
-      tl.to(categoryRef.current, {
-        y: "10%",
-        duration: 0.3,
-        ease: "power3.out",
-      });
-
-      animationRef.current.tl = tl;
-    }
-
-    // 根据状态控制动画
-    if (isOpen && isAnimated && !animationRef.current.isPlaying) {
-      animationRef.current.isPlaying = true;
-      animationRef.current.tl?.play();
-    } else if (!isOpen && isAnimated && !animationRef.current.isPlaying) {
-      animationRef.current.isPlaying = true;
-      animationRef.current.tl?.reverse();
-    }
-  }, [isOpen, isAnimated, closeAnimated, closeOpen]);
-
+export default function Category({ tags }: { tags: number }) {
   return (
-    <div
-      ref={categoryRef}
-      className={`category container mx-auto h-screen absolute -top-1 left-0 right-0 bg-foreground text-background rounded-xl p-6 z-50  `}
-    >
-      <div className="flex justify-end mb-6">
-        <button
-          onClick={() => {
-            closeOpen();
-            // 触发关闭动画
-            animationRef.current.tl?.reverse();
-            animationRef.current.isPlaying = true;
-          }}
-          className="p-2 rounded-full hover:bg-background/20"
+    <>
+      <div
+        className={`category container 
+        mx-auto w-[20rem] bg-background  absolute top-1  left-0 right-0 text-background rounded-sm p-6 z-50  `}
+      >
+        <div className="flex  justify-end mb-6">
+          <svg
+            viewBox="0 0 8 113"
+            preserveAspectRatio="none"
+            className=" absolute z-[51]  top-0 w-2  right-[100%] "
+          >
+            <path
+              d="M8 0v94.72a6 6 0 0 0-2-4.51l-3.9-3.42a6 6 0 0 1-2-4.51V4A4 4 0 0 1 4 0Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+
+        <CategoryList tags={tags} />
+        <svg
+          name="Shape bottom specs"
+          viewBox="0 0 343 12"
+          preserveAspectRatio="none"
+          className=" absolute left-0 -bottom-2 w-full"
         >
-          ✕
-        </button>
+          <path
+            d="M0 8a4 4 0 0 0 4 4h230.52a6 6 0 0 0 4.24-1.76l4.48-4.48A6 6 0 0 1 247.48 4H339a4 4 0 0 0 4-4H0Z"
+            fill="currentColor"
+          ></path>
+        </svg>
       </div>
-      <CategoryList onClose={closeOpen} animationRef={animationRef} />
-    </div>
+    </>
   );
 }

@@ -22,12 +22,13 @@ interface IUserStore {
   loading: boolean
   checkAuth: boolean
   remember: { email: string, password: string } | null
-
+  theme: "light" | "dark" | ""
   signUp: (data: FormData) => Promise<void>
   login: (data: FormData) => Promise<void>
   checkingAuth: () => Promise<void>
   logout: () => Promise<void>
   rememberMe: (data: { email: string, password: string } | null) => void
+  getTheme: (theme: "light" | "dark") => void
   refreshToken: () => Promise<void>
 }
 
@@ -38,6 +39,7 @@ export const useUserStore = create<IUserStore>()(
       loading: false,
       checkAuth: true,
       remember: null,
+      theme: "",
       signUp: async (data: FormData) => {
         set({ loading: true })
         try {
@@ -101,6 +103,9 @@ export const useUserStore = create<IUserStore>()(
       },
       rememberMe: (data: { email: string, password: string } | null) => {
         set({ remember: data })
+      },
+      getTheme: (theme) => {
+        set({ theme })
       },
       refreshToken: async () => {
         if (get().checkAuth) return

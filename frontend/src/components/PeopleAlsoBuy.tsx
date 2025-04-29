@@ -1,9 +1,13 @@
 import axiosInstance from "@/lib/axios";
 import { IProduct } from "@/stores/useProductStore";
-import { addToast, CircularProgress, Divider } from "@heroui/react";
+import { addToast, CircularProgress } from "@heroui/react";
 import { useEffect, useState } from "react";
-import ProductCard from "./productCard";
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import RecommendationsCard from "./RecommendationsCard";
 export default function PeopleAlsoBuy() {
   const [recommendations, setReommendations] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,17 +27,30 @@ export default function PeopleAlsoBuy() {
     };
     fetchRecommendations();
   }, []);
+
   if (isLoading) return <CircularProgress size="lg" color="primary" />;
   return (
     <>
-      <h3 className="font-default text-xl text-secondary-500">
+      <h3 className="font-default text-[10px] lg:text-[calc(7.7px+0.22vw)] font-normal text-foreground">
         其他用戶也購買
       </h3>
-      <Divider className="mt-3" />
-      <div className="mt-6 grid grid-cols-2 max-[400px]:justify-items-center justify-items-center  max-[400px]:grid-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-2">
+      {/* 大螢幕版本 */}
+      <ul
+        className={`mt-6 hidden  gap-2 md:flex justify-between lg:justify-start `}
+      >
         {recommendations?.map((product: IProduct) => (
-          <ProductCard key={product._id} product={product} />
+          <RecommendationsCard key={product._id} product={product} />
         ))}
+      </ul>
+      {/* 小螢幕版本 */}
+      <div className="md:hidden">
+        <Swiper slidesPerView={2.2} spaceBetween={10}>
+          {recommendations?.map((product: IProduct) => (
+            <SwiperSlide key={product._id}>
+              <RecommendationsCard product={product} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </>
   );

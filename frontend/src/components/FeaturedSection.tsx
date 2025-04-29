@@ -1,12 +1,7 @@
 import { useProductStore } from "@/stores/useProductStore";
 import { CircularProgress } from "@heroui/react";
 import { useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+
 import ProductCard from "./productCard";
 export default function FeaturedSection() {
   const { getFeaturedProducts, products, loading } = useProductStore();
@@ -16,22 +11,18 @@ export default function FeaturedSection() {
   }, []);
 
   if (loading) return <CircularProgress />;
+
   return (
-    <div className=" container mx-auto p-2 relative space-y-5 mt-5">
-      <h2 className="w-full text-center text-2xl">精選商品</h2>
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={window.innerWidth > 768 ? 3.2 : 2.4}
-        pagination={{ clickable: true }}
-        className="py-2"
-      >
-        {products.length > 0 &&
-          products?.map((product) => (
-            <SwiperSlide key={product._id}>
-              <ProductCard product={product} isFeatured={true} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
+    <div className=" w-full bg-background  p-2 relative mt-[4.1rem]">
+      <div className="flex justify-between mx-[2.2vw]">
+        <h2 className=" text-[12px]">精選商品</h2>
+        <p className="text-[12px]">探索</p>
+      </div>
+      <div className="mt-[2.3rem] mx-[4.166vw] gap-x-[0.3rem] gap-y-[1rem] grid lg:grid-cols-4 grid-cols-2 md:grid-cols-3 ">
+        {products?.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }
