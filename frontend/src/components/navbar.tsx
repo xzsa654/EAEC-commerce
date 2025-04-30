@@ -142,7 +142,7 @@ export const Navbar = () => {
       position="sticky"
       disableAnimation={true}
       isBlurred={false}
-      className="bg-transparent "
+      className="bg-transparent"
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">

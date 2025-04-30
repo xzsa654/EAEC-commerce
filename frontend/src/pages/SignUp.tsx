@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input, CircularProgress, Link } from "@heroui/react";
+import { Button, Input, CircularProgress, Link, Image } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import { useUserStore } from "@/stores/useUserStore";
@@ -26,40 +26,53 @@ export default function SignUpPage() {
     signUp(fm);
   };
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex w-full max-w-sm flex-col gap-4 rounded-large px-8 pb-10 pt-6 bg-content1 shadow-small "
-      >
-        <p className="pb-4 text-left text-3xl font-semibold">註冊帳號</p>
+    <div className="flex flex-col min-h-screen w-full items-center px-5 justify-center">
+      <div className="w-full max-w-3xl -mb-1">
+        <svg
+          preserveAspectRatio="none"
+          name="Shape top variants"
+          viewBox="0 0 343 12"
+        >
+          <path
+            d="M0 4a4 4 0 0 1 4-4h230.52a6 6 0 0 1 4.24 1.76l4.48 4.48A6 6 0 0 0 247.48 8H339a4 4 0 0 1 4 4H0Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+      <div className="flex w-full max-w-3xl flex-col gap-4 rounded px-8 pb-10 pt-6 bg-foreground  ">
+        <div className="flex font-bold font-Kudryashev flex-col gap-4 text-background items-center">
+          <p className="text-[calc(7.7px+0.22vw)]">EAEC </p>
+          <p className="text-4xl">歡迎加入社群</p>
+        </div>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <Input
+            radius="sm"
             isRequired
+            size="sm"
             label="中文姓名"
-            labelPlacement="outside"
+            className="max-w-[300px]"
+            labelPlacement="inside"
             name="name"
             validate={(value) => {
               if (value.length < 2 || !/[\u4e00-\u9fff]/g.test(value)) {
                 return "請輸入中文名";
               }
             }}
-            placeholder="請輸入全名"
             type="text"
-            variant="bordered"
           />
           <Input
+            radius="sm"
             isRequired
+            size="sm"
             label="Email"
-            labelPlacement="outside"
+            labelPlacement="inside"
             name="email"
-            placeholder="請輸入 email"
             type="email"
-            variant="bordered"
           />
           <Input
+            radius="sm"
             isRequired
+            size="sm"
             endContent={
               <button type="button" onClick={toggleVisibility}>
                 {isVisible ? (
@@ -76,19 +89,19 @@ export default function SignUpPage() {
               </button>
             }
             label="密碼"
-            labelPlacement="outside"
+            labelPlacement="inside"
             errorMessage={() => (
               <ul>{errors?.map((error, i) => <li key={i}>{error}</li>)}</ul>
             )}
             isInvalid={errors.length > 0}
             name="password"
-            placeholder="請輸入密碼"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type={isVisible ? "text" : "password"}
-            variant="bordered"
           />
           <Input
+            radius="sm"
+            size="sm"
             isRequired
             endContent={
               <button type="button" onClick={toggleConfirmVisibility}>
@@ -106,14 +119,12 @@ export default function SignUpPage() {
               </button>
             }
             label="重複密碼"
-            labelPlacement="outside"
+            labelPlacement="inside"
             name="confirmPassword"
             validate={(value) => {
               if (value !== password) return "密碼不一致";
             }}
-            placeholder="請輸入重複密碼"
             type={isConfirmVisible ? "text" : "password"}
-            variant="bordered"
           />
 
           <Button
@@ -128,18 +139,40 @@ export default function SignUpPage() {
               )
             }
             disabled={loading}
-            color="primary"
+            className="text-white"
+            color="default"
+            radius="none"
             type="submit"
           >
             {loading ? "載入中..." : "註冊"}
           </Button>
         </form>
-        <p className="text-center text-small">
-          <Link href="/login" size="sm">
+        <p className="text-center text-background text-small">
+          <Link href="/login" size="sm" className="text-background">
             已經有帳號? 登入
           </Link>
         </p>
-      </motion.div>
+      </div>
+      <svg
+        name="Shape bottom variants"
+        viewBox="0 0 343 12"
+        preserveAspectRatio="none"
+        className="max-w-3xl -mt-1"
+      >
+        <path
+          d="M343 8a4 4 0 0 1-4 4H108.49a6 6 0 0 1-4.25-1.76l-4.48-4.48A6 6 0 0 0 95.51 4H4a4 4 0 0 1-4-4h343Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+      <div className="fixed top-0 -z-10 left-0 w-full h-full  ">
+        <Image
+          src="/login&register/123.jpg"
+          classNames={{ wrapper: "h-full" }}
+          className="object-cover object-center"
+          width={"100%"}
+          height={"100%"}
+        />
+      </div>
     </div>
   );
 }

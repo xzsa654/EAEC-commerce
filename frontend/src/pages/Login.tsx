@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useUserStore } from "@/stores/useUserStore";
 import {
   Button,
-  Input,
   Checkbox,
-  Link,
-  Form,
   CircularProgress,
+  Form,
+  Image,
+  Input,
+  Link,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import { useUserStore } from "@/stores/useUserStore";
+import React, { useEffect } from "react";
 export default function LoginPage() {
   const { loading, login, remember, rememberMe } = useUserStore();
   useEffect(() => {
@@ -43,20 +44,17 @@ export default function LoginPage() {
     }
     login(fm);
   };
-
   return (
-    <div className="flex min-h-screen w-full items-center justify-center">
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex w-full max-w-sm flex-col gap-4 rounded-large bg-content1 px-8 pb-10 pt-6 shadow-small"
-      >
-        <div className="flex flex-col gap-1">
-          <h1 className="text-large font-medium">登入</h1>
-          <p className="text-small text-default-500">以繼續購物</p>
+    <div className="flex flex-col min-h-screen w-full items-center justify-center px-10">
+      <div className=" relative flex w-full max-w-sm flex-col gap-4 rounded bg-foreground px-[1.25rem] pb-[5.75rem] pt-[6.25rem] ">
+        <div className="absolute top-0 -left-[2%] w-[10px]">
+          <svg viewBox="0 0 8 113" preserveAspectRatio="none">
+            <path
+              fill="currentColor"
+              d="M8 0v94.72a6 6 0 0 0-2-4.51l-3.9-3.42a6 6 0 0 1-2-4.51V4A4 4 0 0 1 4 0Z"
+            ></path>
+          </svg>
         </div>
-
         <Form
           className="flex flex-col gap-3"
           validationBehavior="native"
@@ -64,16 +62,19 @@ export default function LoginPage() {
         >
           <Input
             isRequired
-            label="Email "
+            label="Email"
             name="email"
-            placeholder="請輸入 email"
+            size="sm"
             onChange={(e) => setAccount({ ...account, email: e.target.value })}
             type="email"
             value={account?.email}
-            variant="bordered"
+            radius="sm"
+            labelPlacement="inside"
           />
           <Input
             isRequired
+            radius="sm"
+            size="sm"
             endContent={
               <button type="button" onClick={toggleVisibility}>
                 {isVisible ? (
@@ -91,18 +92,20 @@ export default function LoginPage() {
             }
             label="密碼"
             name="password"
-            placeholder="請輸入密碼"
             onChange={(e) =>
               setAccount({ ...account, password: e.target.value })
             }
             value={account.password}
             type={isVisible ? "text" : "password"}
-            variant="bordered"
           />
           <div className="flex w-full items-center justify-between px-1 py-2">
             <Checkbox
               name="remember"
               size="sm"
+              color="default"
+              classNames={{
+                label: "text-background",
+              }}
               isSelected={saveAccount}
               onValueChange={() => setSaveAccount(!saveAccount)}
             >
@@ -121,19 +124,47 @@ export default function LoginPage() {
               )
             }
             className="w-full"
-            color="primary"
             type="submit"
           >
             {loading ? "載入中 ..." : "登入"}
           </Button>
         </Form>
-        <p className="text-center text-small">
+        <p className="text-center text-background text-small">
           還沒有帳號?&nbsp;
-          <Link href="/signup" size="sm">
+          <Link
+            href="/signup"
+            size="sm"
+            underline="always"
+            className="text-background"
+          >
             註冊帳號
           </Link>
         </p>
-      </motion.div>
+      </div>
+      <div className="max-w-sm w-full -mt-1 ">
+        <svg
+          name="Shape bottom specs"
+          viewBox="0 0 343 12"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 8a4 4 0 0 0 4 4h230.52a6 6 0 0 0 4.24-1.76l4.48-4.48A6 6 0 0 1 247.48 4H339a4 4 0 0 0 4-4H0Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+      <div className="w-full h-full fixed top-0 left-0 -z-10">
+        <Image
+          classNames={{
+            wrapper: "h-full bg-cover",
+          }}
+          src="/login&register/123.jpg"
+          className=" object-cover object-center-center"
+          radius="none"
+          width={"100%"}
+          height={"100%"}
+        />
+      </div>
     </div>
   );
 }

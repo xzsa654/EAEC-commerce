@@ -11,6 +11,7 @@ import LoginPage from "./pages/Login";
 import PurchaseSuccessPage from "./pages/PurchaseSuccess";
 import { useCartStore } from "./stores/useCartStore";
 import { useUserStore } from "./stores/useUserStore";
+import Profile from "./pages/Profile";
 
 export function ScrollToTop() {
   const { pathname } = useLocation();
@@ -68,6 +69,10 @@ function App() {
       <Route
         element={user ? <PurchaseSuccessPage /> : <Navigate to={"/login"} />}
         path="/purchaseSuccess"
+      />
+      <Route
+        element={user ? <Profile /> : <Navigate to={"/login"} />}
+        path="/profile"
       />
     </Routes>
   );

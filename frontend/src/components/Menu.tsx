@@ -71,7 +71,7 @@ export default function Menu({ onOpenChange }: Imenu) {
       ref={containerRef}
       className="absolute top-0 left-0 z-[51] px-4 py-7 w-full min-h-screen "
     >
-      <div className=" relative px-3 pt-40 rounded bg-background w-full h-[48rem]">
+      <div className=" relative px-3 pt-40 rounded bg-background w-full h-[44rem]">
         <div className="  w-full text-background ">
           <div
             className={`absolute w-full top-0 left-0 font-Kudryashev text-foreground flex ${currentIndex === 4 ? " justify-end" : "justify-between"}  px-2 py-2 `}
@@ -109,6 +109,7 @@ export default function Menu({ onOpenChange }: Imenu) {
       <svg
         name="Shape bottom specs"
         viewBox="0 0 343 12"
+        className=" relative -top-1"
         preserveAspectRatio="none"
       >
         <path
