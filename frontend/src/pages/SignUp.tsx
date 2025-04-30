@@ -1,8 +1,7 @@
-import React from "react";
-import { Button, Input, CircularProgress, Link, Image } from "@heroui/react";
-import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import { useUserStore } from "@/stores/useUserStore";
+import { Button, CircularProgress, Image, Input, Link } from "@heroui/react";
+import { Icon } from "@iconify/react";
+import React from "react";
 export default function SignUpPage() {
   const { signUp, loading } = useUserStore();
   const [isVisible, setIsVisible] = React.useState(false);

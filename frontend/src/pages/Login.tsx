@@ -11,7 +11,6 @@ import {
   Link,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 export default function LoginPage() {
   const { loading, login, remember, rememberMe } = useUserStore();

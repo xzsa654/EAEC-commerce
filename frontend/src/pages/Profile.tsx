@@ -1,6 +1,4 @@
 import { useUserStore } from "@/stores/useUserStore";
-import { Link } from "@heroui/link";
-import React from "react";
 
 export default function Profile() {
   const { user } = useUserStore();
