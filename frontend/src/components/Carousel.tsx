@@ -3,7 +3,7 @@ import Slideshow from "./text";
 const ShapesSlideshow = () => {
   const slideData = [
     {
-      imgUrl: "banner/5.jpeg",
+      imgUrl: "banner/1.jpg",
       textRows: [
         "EAEC <em>Commerce </em>",
         "<strong>NO MATTER</strong> BUY <em>FIRST</em>",
@@ -12,13 +12,13 @@ const ShapesSlideshow = () => {
       linkUrl: "/category/shirt",
     },
     {
-      imgUrl: "banner/1.jpeg",
+      imgUrl: "banner/2.jpg",
       textRows: ["Temptation", "a <em>desire</em> to <strong>engage</strong>"],
       linkText: "Explore",
       linkUrl: "/category/jeans",
     },
     {
-      imgUrl: "banner/3.jpeg",
+      imgUrl: "banner/3.jpg",
       textRows: [
         "BETTER <strong>TRADING</strong>,",
         "BETTER  <em>SOLUTION</em> ",
@@ -27,13 +27,13 @@ const ShapesSlideshow = () => {
       linkUrl: "/category/glasses",
     },
     {
-      imgUrl: "banner/4.jpeg",
+      imgUrl: "banner/4.jpg",
       textRows: ["Temptation", "a <em>desire</em> to <strong>engage</strong>"],
       linkText: "Explore",
       linkUrl: "/category/shoes",
     },
     {
-      imgUrl: "banner/2.jpeg",
+      imgUrl: "banner/5.jpg",
       textRows: ["Temptation", "a <em>desire</em> to <strong>engage</strong>"],
       linkText: "Explore",
       linkUrl: "/category/caps",
