@@ -32,10 +32,6 @@ export default function Profile() {
         {/* TODO: 加入購買紀錄 */}
         <p>暫無購買紀錄</p>
       </div>
-      <div className="p-5 space-y-2 bg-secondary text-white rounded max-w-sm w-full ">
-        <h2>我的收藏</h2>
-        <div className=" "></div>
-      </div>
     </div>
   );
 }

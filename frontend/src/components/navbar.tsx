@@ -204,9 +204,9 @@ export const Navbar = () => {
               }}
             />
           </div>
-          <div>
+          {/* <div>
             <Box isNav text={"Profile"} link={user ? "profile" : "login"} />
-          </div>
+          </div> */}
           <div>
             <Box
               isNav
