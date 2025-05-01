@@ -11,7 +11,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 import UseDropDown from "@/hooks/useDropDown";
 import { useCartStore } from "@/stores/useCartStore";
 import { useLenisStore } from "@/stores/useLenisStore";
-import { useUserStore } from "@/stores/useUserStore";
+// import { useUserStore } from "@/stores/useUserStore";
 import { useTheme } from "@heroui/use-theme";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
@@ -21,7 +21,7 @@ import NavItemWithDropDown from "./NavItemWithDropDown";
 import Menu from "./Menu";
 export const Navbar = () => {
   // TODO: 添加dashboard
-  const { user } = useUserStore();
+  // const { user } = useUserStore();
   const { carts } = useCartStore();
   const { setTheme, theme } = useTheme();
   const { lenis } = useLenisStore();
